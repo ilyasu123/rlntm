@@ -1,0 +1,1 @@
+i=11100   curriculum_level=16   cur_curriculum_error_rate=0.2939731392555 

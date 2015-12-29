@@ -1,0 +1,1 @@
+i=7850   curriculum_level=60   cur_curriculum_error_rate=0.0034379149317052 

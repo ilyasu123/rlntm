@@ -1,0 +1,52 @@
+Author: ilyasu@,  woj.zaremba@gmail.com
+
+This is not an official Google project.
+
+First, install 'strict' (luarocks install strict)
+Second, make sure that torch lives in /usr/bin/torch (or edit exprs/run_utils_new.py to point to the right torch path)
+
+To run the gradient checker on the new layers, type
+
+> luarocks install totem
+> torch rlntm_pkgs/test_individual_layers.lua
+
+
+To run a full gradient checker (which includes exact expectations for Reinforce), type:
+> torch rlntm_pkgs/RL_check_grad.lua
+
+
+
+To train a model that reverses a list, where the input head is forced to move forward, type:
+> python exprs/train_reverse.py
+
+It takes about 10,000 parameter updates to converge, which sadly takes 3 days on my workstation
+(GPU not required).
+
+If you are not willing to wait for 3 days, please see the output of the included printout log: 
+> less rlntm_runs/train_repeatCopy-1/train_reverse-1.stdout
+
+The printout shows the evolution of the execution traces of the RL-NTM, which 
+are fun to inspect.
+
+
+
+To train a model that solves the repeat copy task, type:
+
+> python exprs/train_repeat_copy.py
+
+It sometimes converges in as little as 1,000 parameter updates. If you
+are not willing to wait for a day, please see the output of the
+included printout log: 
+> less rlntm_runs/train_repeatCopy-1/train_repeatCopy-1.stdout
+
+
+
+
+WARNING:  These experiments are fragile.  It is possible that they will not succeed with 
+the random seeds that are suggested in the code will not work for all combination of
+blas/torch version.  There is a chance that you will run the code as is, and fail to
+produce the kind of behavior that is presented in the included log files.
+
+If this happens to you, simply keep chenging the seed parameter,
+and you will eventually succeed.   It may take a while, however.
+
