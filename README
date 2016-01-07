@@ -43,10 +43,7 @@ included printout log:
 
 
 WARNING:  These experiments are fragile.  It is possible that they will not succeed with 
-the random seeds that are suggested in the code will not work for all combination of
-blas/torch version.  There is a chance that you will run the code as is, and fail to
-produce the kind of behavior that is presented in the included log files.
-
-If this happens to you, simply keep chenging the seed parameter,
-and you will eventually succeed.   It may take a while, however.
+the provided random seeds if the random number generation library is different. 
+We observed that between 30-50% of the random seeds produce the desired result, so you may need
+to tweak it a modest number of times.
 
